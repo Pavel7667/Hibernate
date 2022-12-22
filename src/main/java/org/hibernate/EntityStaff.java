@@ -18,7 +18,7 @@ import javax.persistence.Table;
 public class EntityStaff {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private int id;
     @Column
