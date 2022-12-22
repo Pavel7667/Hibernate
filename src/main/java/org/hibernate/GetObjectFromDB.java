@@ -22,15 +22,17 @@ public class GetObjectFromDB {
             Session session = factory.getCurrentSession();
             session.beginTransaction();
 
-            EntityStaff one = new EntityStaff("Dima", "Li", "IT", 500);
-
             List<EntityStaff> staffList = session
                     .createQuery("from EntityStaff where name ='Roma'")
                     .getResultList();
 
             for (EntityStaff e : staffList){
+                e.setSalary(1500);
+                session.delete(e);
                 System.out.println(e);
             }
+
+            session.createQuery("delete EntityStaff where name='Tom'").executeUpdate();
 
             session.getTransaction().commit();
         } finally {
