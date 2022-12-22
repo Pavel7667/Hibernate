@@ -92,4 +92,6 @@ public class EntityStaff {
     public void setSalary(int salary) {
         this.salary = salary;
     }
+
+
 }

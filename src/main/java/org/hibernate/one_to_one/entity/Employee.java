@@ -1,4 +1,4 @@
-package org.hibernate.entity.onetoone;
+package org.hibernate.one_to_one.entity;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -20,10 +20,6 @@ import javax.persistence.Table;
 @Table(name = "employees")
 public class Employee {
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "details_id")
-    private Detail detail;
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -36,6 +32,10 @@ public class Employee {
     private String department;
     @Column
     private int salary;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "details_id")
+    private Detail empDetail;
 
     // POJO //
 
@@ -51,13 +51,21 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "EntityStaff{" +
+        return "Employee{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", department='" + department + '\'' +
                 ", salary=" + salary +
                 '}';
+    }
+
+    public Detail getEmpDetail() {
+        return empDetail;
+    }
+
+    public void setEmpDetail(Detail empDetail) {
+        this.empDetail = empDetail;
     }
 
     public int getId() {

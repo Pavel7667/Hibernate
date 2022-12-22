@@ -1,4 +1,4 @@
-package org.hibernate.entity.onetoone;
+package org.hibernate.one_to_one.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,19 +15,19 @@ public class Detail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-
     @Column(name = "city")
     private String city;
-
-    @Column(name = "phone_number")
-    private String phone_number;
-
+    @Column(name = "phone_Number")
+    private String phoneNumber;
     @Column(name = "email")
     private String email;
 
-    public Detail(String city, String phone_number, String email) {
+    public Detail() {
+    }
+
+    public Detail(String city, String phoneNumber, String email) {
         this.city = city;
-        this.phone_number = phone_number;
+        this.phoneNumber = phoneNumber;
         this.email = email;
     }
 
@@ -36,12 +36,9 @@ public class Detail {
         return "Detail{" +
                 "id=" + id +
                 ", city='" + city + '\'' +
-                ", phone_number='" + phone_number + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email + '\'' +
                 '}';
-    }
-
-    public Detail() {
     }
 
     public int getId() {
@@ -60,12 +57,12 @@ public class Detail {
         this.city = city;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public String getEmail() {
